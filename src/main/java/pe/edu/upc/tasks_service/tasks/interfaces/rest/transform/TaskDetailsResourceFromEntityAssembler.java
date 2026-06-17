@@ -1,4 +1,4 @@
-package pe.edu.upc.tasks_service.tasks.rest.transform;
+package pe.edu.upc.tasks_service.tasks.interfaces.rest.transform;
 
 import pe.edu.upc.tasks_service.tasks.domain.model.aggregates.Task;
 import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.TaskDetailsResource;

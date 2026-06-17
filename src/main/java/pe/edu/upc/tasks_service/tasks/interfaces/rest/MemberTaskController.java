@@ -1,4 +1,4 @@
-package pe.edu.upc.tasks_service.tasks.rest;
+package pe.edu.upc.tasks_service.tasks.interfaces.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

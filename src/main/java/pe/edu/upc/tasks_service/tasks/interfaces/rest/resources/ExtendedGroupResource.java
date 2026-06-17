@@ -1,4 +1,4 @@
-package pe.edu.upc.tasks_service.tasks.rest.resources;
+package pe.edu.upc.tasks_service.tasks.interfaces.rest.resources;
 
 import java.util.List;
 
