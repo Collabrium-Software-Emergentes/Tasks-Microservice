@@ -1,16 +1,17 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.messaging.listeners;
 
-import com.collabrium.tasks.management.domain.model.events.GroupDeletedEvent;
-import com.collabrium.tasks.management.domain.model.events.InvitationAcceptedEvent;
-import com.collabrium.tasks.management.domain.model.events.MemberRemovedFromGroupEvent;
-import com.collabrium.tasks.management.domain.services.MemberCommandService;
-import com.collabrium.tasks.management.interfaces.messaging.transform.AssignMemberToGroupCommandFromEventAssembler;
-import com.collabrium.tasks.management.interfaces.messaging.transform.DeleteGroupDataCommandFromEventAssembler;
-import com.collabrium.tasks.management.interfaces.messaging.transform.RemoveMemberFromGroupCommandFromEventAssembler;
+
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.GroupDeletedEvent;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.InvitationAcceptedEvent;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.MemberRemovedFromGroupEvent;
+import pe.edu.upc.tasks_service.tasks.domain.services.MemberCommandService;
+import pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform.AssignMemberToGroupCommandFromEventAssembler;
+import pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform.DeleteGroupDataCommandFromEventAssembler;
+import pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform.RemoveMemberFromGroupCommandFromEventAssembler;
 
-import static com.collabrium.tasks.shared.infrastructure.configuration.rabbitmq.RabbitMQConfiguration.*;
+import static pe.edu.upc.tasks_service.shared.infrastructure.configuration.rabbitmq.RabbitMQConfiguration.*;
 
 @Component
 public class GroupsEventsListener {

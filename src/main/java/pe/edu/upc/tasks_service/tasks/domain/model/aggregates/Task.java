@@ -1,17 +1,18 @@
 package pe.edu.upc.tasks_service.tasks.domain.model.aggregates;
 
-import com.collabrium.tasks.management.domain.exceptions.InvalidTaskException;
-import com.collabrium.tasks.management.domain.model.commands.CreateTaskCommand;
-import com.collabrium.tasks.management.domain.model.commands.UpdateTaskCommand;
-import com.collabrium.tasks.management.domain.model.commands.UpdateTaskStatusCommand;
-import com.collabrium.tasks.management.domain.model.valueobjects.GroupId;
-import com.collabrium.tasks.management.domain.model.valueobjects.TaskStatus;
-import com.collabrium.tasks.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import pe.edu.upc.tasks_service.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import pe.edu.upc.tasks_service.tasks.domain.exceptions.InvalidTaskException;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.CreateTaskCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.UpdateTaskCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.UpdateTaskStatusCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.GroupId;
+import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.TaskStatus;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;

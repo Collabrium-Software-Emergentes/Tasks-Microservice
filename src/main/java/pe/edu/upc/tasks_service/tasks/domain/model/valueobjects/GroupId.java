@@ -1,7 +1,7 @@
 package pe.edu.upc.tasks_service.tasks.domain.model.valueobjects;
 
-import com.collabrium.tasks.management.domain.exceptions.InvalidGroupIdException;
 import jakarta.persistence.Embeddable;
+import pe.edu.upc.tasks_service.tasks.domain.exceptions.InvalidGroupIdException;
 
 @Embeddable
 public record GroupId(Long value) {

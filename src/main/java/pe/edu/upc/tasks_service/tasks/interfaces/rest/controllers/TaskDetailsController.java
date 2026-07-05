@@ -1,21 +1,22 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.controllers;
 
-import com.collabrium.tasks.management.application.internal.commandservices.TaskDetailsCommandService;
-import com.collabrium.tasks.management.application.internal.queryservices.TaskDetailsQueryService;
-import com.collabrium.tasks.management.domain.model.commands.UpdateTaskStatusCommand;
-import com.collabrium.tasks.management.domain.model.queries.*;
-import com.collabrium.tasks.management.interfaces.rest.resources.CreateTaskResource;
-import com.collabrium.tasks.management.interfaces.rest.resources.TaskResource;
-import com.collabrium.tasks.management.interfaces.rest.resources.UpdateTaskResource;
-import com.collabrium.tasks.management.interfaces.rest.transform.CreateTaskCommandFromResourceAssembler;
-import com.collabrium.tasks.management.interfaces.rest.transform.TaskResourceFromDTOAssembler;
-import com.collabrium.tasks.management.interfaces.rest.transform.UpdateTaskCommandFromResourceAssembler;
-import com.collabrium.tasks.shared.infrastructure.security.AuthenticatedUser;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.tasks_service.shared.infrastructure.security.AuthenticatedUser;
+import pe.edu.upc.tasks_service.tasks.application.internal.commandservices.TaskDetailsCommandService;
+import pe.edu.upc.tasks_service.tasks.application.internal.queryservices.TaskDetailsQueryService;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.UpdateTaskStatusCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.*;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.CreateTaskResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.TaskResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.UpdateTaskResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.CreateTaskCommandFromResourceAssembler;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.TaskResourceFromDTOAssembler;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.UpdateTaskCommandFromResourceAssembler;
 
 import java.util.List;
 

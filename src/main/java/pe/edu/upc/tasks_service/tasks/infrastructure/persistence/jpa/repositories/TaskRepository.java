@@ -1,10 +1,11 @@
 package pe.edu.upc.tasks_service.tasks.infrastructure.persistence.jpa.repositories;
 
-import com.collabrium.tasks.management.domain.model.aggregates.Task;
-import com.collabrium.tasks.management.domain.model.valueobjects.GroupId;
-import com.collabrium.tasks.management.domain.model.valueobjects.TaskStatus;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import pe.edu.upc.tasks_service.tasks.domain.model.aggregates.Task;
+import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.GroupId;
+import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.TaskStatus;
 
 import java.time.OffsetDateTime;
 import java.util.List;

@@ -1,8 +1,9 @@
 package pe.edu.upc.tasks_service.tasks.infrastructure.adapters;
 
-import com.collabrium.tasks.management.application.internal.outboundservices.ports.IamQueryPort;
-import com.collabrium.tasks.shared.infrastructure.clients.iam.IamFeignClient;
-import com.collabrium.tasks.shared.infrastructure.clients.iam.resources.UserOnlyResource;
+import pe.edu.upc.tasks_service.shared.infrastructure.clients.iam.IamFeignClient;
+import pe.edu.upc.tasks_service.shared.infrastructure.clients.iam.resources.UserOnlyResource;
+import pe.edu.upc.tasks_service.tasks.application.internal.outboundservices.ports.IamQueryPort;
+
 import org.springframework.stereotype.Component;
 
 @Component

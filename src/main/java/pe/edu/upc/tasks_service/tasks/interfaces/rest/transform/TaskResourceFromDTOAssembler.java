@@ -1,7 +1,8 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.transform;
 
-import com.collabrium.tasks.management.application.internal.dto.TaskDetailsDTO;
-import com.collabrium.tasks.management.interfaces.rest.resources.TaskResource;
+
+import pe.edu.upc.tasks_service.tasks.application.internal.dto.TaskDetailsDTO;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.TaskResource;
 
 public class TaskResourceFromDTOAssembler {
 

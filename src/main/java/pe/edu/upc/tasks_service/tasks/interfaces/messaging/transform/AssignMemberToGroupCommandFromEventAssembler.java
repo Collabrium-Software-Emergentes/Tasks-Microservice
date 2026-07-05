@@ -1,7 +1,8 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform;
 
-import com.collabrium.tasks.management.domain.model.commands.AssignMemberToGroupCommand;
-import com.collabrium.tasks.management.domain.model.events.InvitationAcceptedEvent;
+
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.AssignMemberToGroupCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.InvitationAcceptedEvent;
 
 public class AssignMemberToGroupCommandFromEventAssembler {
 

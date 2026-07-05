@@ -1,17 +1,18 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.controllers;
 
-import com.collabrium.tasks.management.domain.model.commands.DeleteTaskCommand;
-import com.collabrium.tasks.management.domain.model.queries.GetTaskByIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetTasksByGroupIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetTasksByMemberIdQuery;
-import com.collabrium.tasks.management.domain.services.TaskCommandService;
-import com.collabrium.tasks.management.domain.services.TaskQueryService;
-import com.collabrium.tasks.management.interfaces.rest.resources.TaskDetailsResource;
-import com.collabrium.tasks.management.interfaces.rest.transform.TaskDetailsResourceFromEntityAssembler;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.DeleteTaskCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTaskByIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTasksByGroupIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTasksByMemberIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.services.TaskCommandService;
+import pe.edu.upc.tasks_service.tasks.domain.services.TaskQueryService;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.TaskDetailsResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.TaskDetailsResourceFromEntityAssembler;
 
 import java.util.List;
 

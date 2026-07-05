@@ -1,9 +1,11 @@
 package pe.edu.upc.tasks_service.tasks.domain.services;
 
-import com.collabrium.tasks.management.domain.model.aggregates.Task;
-import com.collabrium.tasks.management.domain.model.queries.GetTaskByIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetTasksByGroupIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetTasksByMemberIdQuery;
+
+
+import pe.edu.upc.tasks_service.tasks.domain.model.aggregates.Task;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTaskByIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTasksByGroupIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTasksByMemberIdQuery;
 
 import java.util.List;
 import java.util.Optional;

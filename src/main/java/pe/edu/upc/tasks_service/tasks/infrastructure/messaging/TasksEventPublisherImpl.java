@@ -1,12 +1,12 @@
 package pe.edu.upc.tasks_service.tasks.infrastructure.messaging;
 
-import com.collabrium.tasks.management.application.internal.outboundservices.messaging.TasksEventPublisher;
-import com.collabrium.tasks.management.domain.model.events.MemberCreatedEvent;
-import com.collabrium.tasks.management.domain.model.events.MemberLeftGroupEvent;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.tasks_service.tasks.application.internal.outboundservices.messaging.TasksEventPublisher;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.MemberCreatedEvent;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.MemberLeftGroupEvent;
 
-import static com.collabrium.tasks.shared.infrastructure.configuration.rabbitmq.RabbitMQConfiguration.*;
+import static pe.edu.upc.tasks_service.shared.infrastructure.configuration.rabbitmq.RabbitMQConfiguration.*;
 
 @Service
 public class TasksEventPublisherImpl implements TasksEventPublisher {

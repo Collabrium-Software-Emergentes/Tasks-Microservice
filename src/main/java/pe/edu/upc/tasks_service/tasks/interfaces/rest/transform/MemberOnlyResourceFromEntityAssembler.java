@@ -1,7 +1,8 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.transform;
 
-import com.collabrium.tasks.management.domain.model.aggregates.Member;
-import com.collabrium.tasks.management.interfaces.rest.resources.MemberOnlyResource;
+
+import pe.edu.upc.tasks_service.tasks.domain.model.aggregates.Member;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.MemberOnlyResource;
 
 public class MemberOnlyResourceFromEntityAssembler {
 

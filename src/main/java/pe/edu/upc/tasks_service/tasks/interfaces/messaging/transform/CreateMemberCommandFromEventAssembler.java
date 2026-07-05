@@ -1,7 +1,8 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform;
 
-import com.collabrium.tasks.management.domain.model.commands.CreateMemberCommand;
-import com.collabrium.tasks.management.domain.model.events.UserMemberCreatedEvent;
+
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.CreateMemberCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.UserMemberCreatedEvent;
 
 public class CreateMemberCommandFromEventAssembler {
 

@@ -1,15 +1,15 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.controllers;
 
-import com.collabrium.tasks.management.application.internal.queryservices.MemberDetailsQueryService;
-import com.collabrium.tasks.management.domain.model.queries.GetExtendedGroupByUserIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetMemberDetailsByIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetMemberDetailsByUserIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetMembersDetailsByGroupIdQuery;
-import com.collabrium.tasks.management.interfaces.rest.resources.ExtendedGroupResource;
-import com.collabrium.tasks.management.interfaces.rest.resources.MemberResource;
-import com.collabrium.tasks.management.interfaces.rest.transform.ExtendedGroupResourceFromDTOAssembler;
-import com.collabrium.tasks.management.interfaces.rest.transform.MemberResourceFromDTOAssembler;
-import com.collabrium.tasks.shared.infrastructure.security.AuthenticatedUser;
+import pe.edu.upc.tasks_service.tasks.application.internal.queryservices.MemberDetailsQueryService;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetExtendedGroupByUserIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetMemberDetailsByIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetMemberDetailsByUserIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetMembersDetailsByGroupIdQuery;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.ExtendedGroupResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.MemberResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.ExtendedGroupResourceFromDTOAssembler;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.MemberResourceFromDTOAssembler;
+import pe.edu.upc.tasks_service.shared.infrastructure.security.AuthenticatedUser;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,9 @@
 package pe.edu.upc.tasks_service.tasks.infrastructure.adapters;
 
-import com.collabrium.tasks.management.application.internal.outboundservices.ports.GroupsQueryPort;
-import com.collabrium.tasks.shared.infrastructure.clients.groups.GroupsFeignClient;
-import com.collabrium.tasks.shared.infrastructure.clients.groups.resources.GroupOnlyResource;
 import org.springframework.stereotype.Component;
+import pe.edu.upc.tasks_service.shared.infrastructure.clients.groups.GroupsFeignClient;
+import pe.edu.upc.tasks_service.shared.infrastructure.clients.groups.resources.GroupOnlyResource;
+import pe.edu.upc.tasks_service.tasks.application.internal.outboundservices.ports.GroupsQueryPort;
 
 @Component
 public class GroupsQueryAdapter implements GroupsQueryPort {

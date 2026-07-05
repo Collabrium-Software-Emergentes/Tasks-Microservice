@@ -1,13 +1,13 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.controllers;
 
-import com.collabrium.tasks.management.domain.model.commands.LeaveGroupCommand;
-import com.collabrium.tasks.management.domain.model.queries.GetAllMembersByGroupIdQuery;
-import com.collabrium.tasks.management.domain.model.queries.GetMemberByIdQuery;
-import com.collabrium.tasks.management.domain.services.MemberCommandService;
-import com.collabrium.tasks.management.domain.services.MemberQueryService;
-import com.collabrium.tasks.management.interfaces.rest.resources.MemberOnlyResource;
-import com.collabrium.tasks.management.interfaces.rest.transform.MemberOnlyResourceFromEntityAssembler;
-import com.collabrium.tasks.shared.infrastructure.security.AuthenticatedUser;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.LeaveGroupCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetAllMembersByGroupIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetMemberByIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.services.MemberCommandService;
+import pe.edu.upc.tasks_service.tasks.domain.services.MemberQueryService;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.MemberOnlyResource;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.MemberOnlyResourceFromEntityAssembler;
+import pe.edu.upc.tasks_service.shared.infrastructure.security.AuthenticatedUser;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;

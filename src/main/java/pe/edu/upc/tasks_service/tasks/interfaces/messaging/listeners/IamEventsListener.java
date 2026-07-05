@@ -1,12 +1,13 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.messaging.listeners;
 
-import com.collabrium.tasks.management.domain.model.events.UserMemberCreatedEvent;
-import com.collabrium.tasks.management.domain.services.MemberCommandService;
-import com.collabrium.tasks.management.interfaces.messaging.transform.CreateMemberCommandFromEventAssembler;
+
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.UserMemberCreatedEvent;
+import pe.edu.upc.tasks_service.tasks.domain.services.MemberCommandService;
+import pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform.CreateMemberCommandFromEventAssembler;
 
-import static com.collabrium.tasks.shared.infrastructure.configuration.rabbitmq.RabbitMQConfiguration.USER_MEMBER_CREATED_QUEUE;
+import static pe.edu.upc.tasks_service.shared.infrastructure.configuration.rabbitmq.RabbitMQConfiguration.USER_MEMBER_CREATED_QUEUE;
 
 @Component
 public class IamEventsListener {

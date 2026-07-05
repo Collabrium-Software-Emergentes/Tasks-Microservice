@@ -1,7 +1,9 @@
 package pe.edu.upc.tasks_service.tasks.domain.services;
 
-import com.collabrium.tasks.management.domain.model.aggregates.Member;
-import com.collabrium.tasks.management.domain.model.commands.*;
+
+
+import pe.edu.upc.tasks_service.tasks.domain.model.aggregates.Member;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.*;
 
 import java.util.Optional;
 

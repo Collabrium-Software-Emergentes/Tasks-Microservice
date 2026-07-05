@@ -1,7 +1,8 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.rest.transform;
 
-import com.collabrium.tasks.management.domain.model.commands.CreateTaskCommand;
-import com.collabrium.tasks.management.interfaces.rest.resources.CreateTaskResource;
+
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.CreateTaskCommand;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.CreateTaskResource;
 
 public class CreateTaskCommandFromResourceAssembler {
 

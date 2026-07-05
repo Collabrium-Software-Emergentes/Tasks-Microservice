@@ -1,7 +1,8 @@
 package pe.edu.upc.tasks_service.tasks.interfaces.messaging.transform;
 
-import com.collabrium.tasks.management.domain.model.commands.RemoveMemberFromGroupCommand;
-import com.collabrium.tasks.management.domain.model.events.MemberRemovedFromGroupEvent;
+
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.RemoveMemberFromGroupCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.events.MemberRemovedFromGroupEvent;
 
 public class RemoveMemberFromGroupCommandFromEventAssembler {
 

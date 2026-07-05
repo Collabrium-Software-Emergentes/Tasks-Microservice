@@ -1,13 +1,14 @@
 package pe.edu.upc.tasks_service.tasks.domain.model.aggregates;
 
-import com.collabrium.tasks.management.domain.exceptions.InvalidMemberException;
-import com.collabrium.tasks.management.domain.model.commands.CreateMemberCommand;
-import com.collabrium.tasks.management.domain.model.valueobjects.GroupId;
-import com.collabrium.tasks.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pe.edu.upc.tasks_service.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import pe.edu.upc.tasks_service.tasks.domain.exceptions.InvalidMemberException;
+import pe.edu.upc.tasks_service.tasks.domain.model.commands.CreateMemberCommand;
+import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.GroupId;
 
 import java.util.ArrayList;
 import java.util.List;
