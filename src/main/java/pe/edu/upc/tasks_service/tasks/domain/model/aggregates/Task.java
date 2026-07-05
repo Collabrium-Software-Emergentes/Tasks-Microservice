@@ -61,6 +61,9 @@ public class Task extends AuditableAbstractAggregateRoot<Task> {
   @Column(nullable = false)
   private Long timePassed = 0L;
 
+  @Column(name = "image_url")
+  private String imageUrl;
+
   public Task(CreateTaskCommand command) {
 
     validateCreation(command);
@@ -71,6 +74,7 @@ public class Task extends AuditableAbstractAggregateRoot<Task> {
     this.status = resolveInitialStatus(command.dueDate());
     this.timesRearranged = 0;
     this.timePassed = 0L;
+    this.imageUrl = command.imageUrl();
   }
 
   private void validateCreation(CreateTaskCommand command) {
@@ -196,6 +200,12 @@ public class Task extends AuditableAbstractAggregateRoot<Task> {
 
       this.status =
           resolveInitialStatus(command.dueDate());
+    }
+
+    if (command instanceof pe.edu.upc.tasks_service.tasks.domain.model.commands.UpdateTaskCommand upd) {
+      if (upd != null) {
+        // If update command later includes imageUrl, handle it; currently UpdateTaskCommand doesn't have imageUrl
+      }
     }
   }
 

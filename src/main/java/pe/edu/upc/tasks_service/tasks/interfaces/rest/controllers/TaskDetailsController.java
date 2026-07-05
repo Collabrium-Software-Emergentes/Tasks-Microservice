@@ -17,6 +17,9 @@ import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.UpdateTaskResour
 import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.CreateTaskCommandFromResourceAssembler;
 import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.TaskResourceFromDTOAssembler;
 import pe.edu.upc.tasks_service.tasks.interfaces.rest.transform.UpdateTaskCommandFromResourceAssembler;
+import pe.edu.upc.tasks_service.shared.infrastructure.storage.FileStorageService;
+import org.springframework.http.MediaType;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -27,14 +30,17 @@ public class TaskDetailsController {
 
   private final TaskDetailsCommandService taskDetailsCommandService;
   private final TaskDetailsQueryService taskDetailsQueryService;
+  private final FileStorageService fileStorageService;
 
   public TaskDetailsController(
       TaskDetailsCommandService taskDetailsCommandService,
       TaskDetailsQueryService taskDetailsQueryService
+      , FileStorageService fileStorageService
   ) {
 
     this.taskDetailsCommandService = taskDetailsCommandService;
     this.taskDetailsQueryService = taskDetailsQueryService;
+    this.fileStorageService = fileStorageService;
   }
 
   @GetMapping("/tasks/{taskId}")
@@ -59,19 +65,25 @@ public class TaskDetailsController {
     return ResponseEntity.ok(taskResource);
   }
 
-  @PostMapping("/members/{memberId}/tasks")
+  @PostMapping(value = "/members/{memberId}/tasks", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   @Operation(
       summary = "Create a new task",
       description = "Creates a new task"
   )
   public ResponseEntity<TaskResource> createTask(
       @PathVariable Long memberId,
-      @RequestBody CreateTaskResource resource,
+      @RequestPart("resource") CreateTaskResource resource,
+      @RequestPart("file") MultipartFile file,
       @AuthenticationPrincipal AuthenticatedUser user
   ) {
+    if (file == null || file.isEmpty()) {
+      return ResponseEntity.badRequest().build();
+    }
+
+    String imageUrl = fileStorageService.store(file);
 
     var createTaskCommand = CreateTaskCommandFromResourceAssembler
-        .toCommandFromResource(resource, memberId, user.userId());
+        .toCommandFromResource(resource, memberId, user.userId(), imageUrl);
 
     var taskDetails = taskDetailsCommandService.handle(createTaskCommand);
 

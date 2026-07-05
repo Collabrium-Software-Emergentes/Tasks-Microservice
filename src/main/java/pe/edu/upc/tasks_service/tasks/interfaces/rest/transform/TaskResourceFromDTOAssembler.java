@@ -23,6 +23,7 @@ public class TaskResourceFromDTOAssembler {
         dto.status(),
         dto.timesRearranged(),
         dto.timePassed(),
+        dto.imageUrl(),
         TaskMemberResourceFromDTOAssembler
             .toResourceFromDTO(dto.member()),
         dto.groupId()

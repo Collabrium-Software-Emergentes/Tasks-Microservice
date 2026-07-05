@@ -37,6 +37,7 @@ public class TaskDetailsDTOAssembler {
         task.getStatus().name(),
         task.getTimesRearranged(),
         task.getTimePassed(),
+        task.getImageUrl(),
         memberDTO,
         task.getGroupId() != null
             ? task.getGroupId().value()

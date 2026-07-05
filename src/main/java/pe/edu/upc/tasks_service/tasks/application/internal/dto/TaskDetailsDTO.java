@@ -10,6 +10,7 @@ public record TaskDetailsDTO(
     String status,
     Integer timesRearranged,
     Long timePassed,
+    String imageUrl,
     TaskMemberDTO member,
     Long groupId
 ) {

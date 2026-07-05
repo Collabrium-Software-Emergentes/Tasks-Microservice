@@ -12,7 +12,8 @@ public class CreateTaskCommandFromResourceAssembler {
   public static CreateTaskCommand toCommandFromResource(
       CreateTaskResource resource,
       Long memberId,
-      Long userId
+      Long userId,
+      String imageUrl
   ) {
 
     return new CreateTaskCommand(
@@ -20,7 +21,8 @@ public class CreateTaskCommandFromResourceAssembler {
         resource.description(),
         resource.dueDate(),
         memberId,
-        userId
+        userId,
+        imageUrl
     );
   }
 }

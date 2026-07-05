@@ -10,6 +10,7 @@ public record TaskResource(
     String status,
     Integer timesRearranged,
     Long timePassed,
+    String imageUrl,
     TaskMemberResource member,
     Long groupId
 ) {

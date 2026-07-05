@@ -7,6 +7,7 @@ public record CreateTaskCommand(
     String description,
     OffsetDateTime dueDate,
     Long memberId,
-    Long userId
+    Long userId,
+    String imageUrl
 ) {
 }
