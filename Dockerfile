@@ -1,37 +1,48 @@
-# ===========================
-#   STAGE 1 : Build with Maven
-# ===========================
-FROM maven:3.9.6-eclipse-temurin-21 AS builder
+# Build stage
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
-# Copiar POM y descargar dependencias (cache)
-COPY pom.xml .
-RUN mvn -q dependency:go-offline
+RUN --mount=type=cache,target=/root/.m2 \
+    echo "Preparing Maven cache"
 
-# Copiar código fuente
+# Copy Maven files
+COPY pom.xml .
+COPY .mvn .mvn
+
+# Copy source code
 COPY src ./src
 
-# Construir la aplicación
-RUN mvn -q clean package -DskipTests
+# Build application
+RUN --mount=type=cache,target=/root/.m2 \
+    mvn clean package -DskipTests -B
 
-# ===========================
-#   STAGE 2 : Run App
-# ===========================
-FROM eclipse-temurin:21-jre
+# Runtime stage
+FROM eclipse-temurin:21-jre-alpine
+
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
+# Create non-root user
+RUN addgroup -S spring && adduser -S spring -G spring
 
 WORKDIR /app
 
-# Copiamos el JAR desde el stage anterior
-COPY --from=builder /app/target/*.jar app.jar
+# Copy JAR from build stage
+COPY --from=build --chown=spring:spring /app/target/*.jar app.jar
 
-# Puerto asignado por Render
-ENV PORT=8083
+# Switch to non-root user
+USER spring:spring
 
-# Variables necesarias para DB, JWT y RabbitMQ
-ENV POSTGRES_URL=""
-ENV POSTGRES_USER=""
-ENV POSTGRES_PASSWORD=""
+# Expose port
+EXPOSE 8083
 
-# Entrypoint de Spring Boot usando el puerto dinámico
-ENTRYPOINT ["sh", "-c", "java -jar -Dserver.port=${PORT} app.jar"]
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --start-period=90s --retries=3 \
+  CMD curl -f http://localhost:8083/actuator/health || exit 1
+
+# JVM options
+ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+UseContainerSupport -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp"
+
+# Run the application
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
