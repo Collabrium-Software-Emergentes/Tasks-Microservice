@@ -1,0 +1,32 @@
+package pe.edu.upc.tasks_service.tasks.interfaces.rest.transform;
+
+
+import pe.edu.upc.tasks_service.tasks.application.internal.dto.TaskDetailsDTO;
+import pe.edu.upc.tasks_service.tasks.interfaces.rest.resources.TaskResource;
+
+public class TaskResourceFromDTOAssembler {
+
+  private TaskResourceFromDTOAssembler() {
+  }
+
+  public static TaskResource toResourceFromDTO(
+      TaskDetailsDTO dto
+  ) {
+
+    return new TaskResource(
+        dto.id(),
+        dto.title(),
+        dto.description(),
+        dto.dueDate(),
+        dto.createdAt(),
+        dto.updatedAt(),
+        dto.status(),
+        dto.timesRearranged(),
+        dto.timePassed(),
+        dto.imageUrl(),
+        TaskMemberResourceFromDTOAssembler
+            .toResourceFromDTO(dto.member()),
+        dto.groupId()
+    );
+  }
+}

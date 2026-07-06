@@ -1,0 +1,17 @@
+package pe.edu.upc.tasks_service.tasks.application.internal.dto;
+
+public record TaskDetailsDTO(
+    Long id,
+    String title,
+    String description,
+    String dueDate,
+    String createdAt,
+    String updatedAt,
+    String status,
+    Integer timesRearranged,
+    Long timePassed,
+    String imageUrl,
+    TaskMemberDTO member,
+    Long groupId
+) {
+}

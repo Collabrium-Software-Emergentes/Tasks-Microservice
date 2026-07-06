@@ -1,53 +1,58 @@
 package pe.edu.upc.tasks_service.tasks.application.internal.queryservices;
 
-import org.springframework.stereotype.Service;
 import pe.edu.upc.tasks_service.tasks.domain.model.aggregates.Task;
-import pe.edu.upc.tasks_service.tasks.domain.model.queries.*;
-import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.GroupId;
-import pe.edu.upc.tasks_service.tasks.domain.model.valueobjects.TaskStatus;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTaskByIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTasksByGroupIdQuery;
+import pe.edu.upc.tasks_service.tasks.domain.model.queries.GetTasksByMemberIdQuery;
 import pe.edu.upc.tasks_service.tasks.domain.services.TaskQueryService;
 import pe.edu.upc.tasks_service.tasks.infrastructure.persistence.jpa.repositories.TaskRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class TaskQueryServiceImpl implements TaskQueryService {
+
   private final TaskRepository taskRepository;
 
-  public TaskQueryServiceImpl(TaskRepository taskRepository) {
+  public TaskQueryServiceImpl(
+      TaskRepository taskRepository
+  ) {
+
     this.taskRepository = taskRepository;
   }
 
-
   @Override
-  public List<Task> handle(GetAllTasksQuery query) {
-    return this.taskRepository.findAll();
+  @Transactional(readOnly = true)
+  public Optional<Task> handle(
+      GetTaskByIdQuery query
+  ) {
+
+    return taskRepository.findById(query.taskId());
   }
 
   @Override
-  public Optional<Task> handle(GetTaskByIdQuery query) {
-    return this.taskRepository.findById(query.taskId());
+  @Transactional(readOnly = true)
+  public List<Task> handle(
+      GetTasksByMemberIdQuery query
+  ) {
+
+    return taskRepository.findByMember_Id(
+        query.memberId()
+    );
   }
 
   @Override
-  public List<Task> handle(GetAllTasksByMemberId query) {
-    return this.taskRepository.findByMember_Id(query.memberId());
-  }
+  @Transactional(readOnly = true)
+  public List<Task> handle(
+    GetTasksByGroupIdQuery query
+  ) {
 
-  @Override
-  public List<Task> handle(GetAllTaskByStatusQuery query) {
-    TaskStatus taskStatus = TaskStatus.valueOf(query.taskStatus());
-    return taskRepository.findByStatus(taskStatus);
+    return taskRepository
+      .findByGroupId_Value(
+        query.groupId()
+      );
   }
-
-  @Override
-  public List<Task> handle(GetAllTasksByGroupIdQuery query) {
-    return taskRepository.findByGroupId(new GroupId(query.groupId()));
-  }
-
-    @Override
-    public Optional<Task> handle(GetTaskDetailsByIdQuery query) {
-        return this.taskRepository.findById(query.taskId());
-    }
 }

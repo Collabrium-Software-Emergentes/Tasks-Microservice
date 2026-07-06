@@ -1,26 +1,33 @@
 package pe.edu.upc.tasks_service.shared.domain.model.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.Getter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Getter
-@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
 public class AuditableModel {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
 
-  @CreatedDate
   @Column(nullable = false, updatable = false)
   private OffsetDateTime createdAt;
 
-  @LastModifiedDate
   @Column(nullable = false)
   private OffsetDateTime updatedAt;
+
+  @PrePersist
+  protected void onCreate() {
+    OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+    this.createdAt = now;
+    this.updatedAt = now;
+  }
+
+  @PreUpdate
+  protected void onUpdate() {
+    this.updatedAt = OffsetDateTime.now(ZoneOffset.UTC);
+  }
 }

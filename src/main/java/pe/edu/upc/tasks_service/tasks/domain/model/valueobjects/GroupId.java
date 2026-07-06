@@ -1,13 +1,23 @@
 package pe.edu.upc.tasks_service.tasks.domain.model.valueobjects;
 
 import jakarta.persistence.Embeddable;
-import jakarta.validation.constraints.NotNull;
+import pe.edu.upc.tasks_service.tasks.domain.exceptions.InvalidGroupIdException;
 
 @Embeddable
-public record GroupId(@NotNull Long value) {
+public record GroupId(Long value) {
+
   public GroupId {
-    if (value == null || value <= 0) {
-      throw new IllegalArgumentException("Group ID cannot be null or negative.");
+    validateGroupId(value);
+  }
+
+  private static void validateGroupId(Long value) {
+
+    if (value == null) {
+      throw InvalidGroupIdException.forNull();
+    }
+
+    if (value <= 0) {
+      throw InvalidGroupIdException.forZeroOrNegative(value);
     }
   }
 }
